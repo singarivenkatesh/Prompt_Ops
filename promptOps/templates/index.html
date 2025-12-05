@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Arithmetic Calculator</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f7f7f7;
+        }
+        .calculator-box {
+            max-width: 450px;
+            margin: 60px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        .btn-calc {
+            width: 100%;
+            margin-top: 10px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="calculator-box">
+        <h2>Arithmetic Calculator</h2>
+
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label">Enter Number 1</label>
+                <input type="number" step="any" name="num1" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Enter Number 2</label>
+                <input type="number" step="any" name="num2" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Select Operation</label>
+                <select name="operation" class="form-select">
+                    <option value="add">Addition (+)</option>
+                    <option value="subtract">Subtraction (-)</option>
+                    <option value="multiply">Multiplication (×)</option>
+                    <option value="divide">Division (÷)</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-calc">Calculate</button>
+        </form>
+
+        {% if result is not none %}
+            <div class="alert alert-info mt-3 text-center">
+                <strong>Result:</strong> {{ result }}
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
